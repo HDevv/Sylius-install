@@ -1,6 +1,6 @@
 # Installation de Sylius
 
-Ce guide explique pas à pas comment installer **Sylius Standard** pour un projet nommé `SyliusInn`.
+Ce guide explique pas à pas comment installer **Sylius Standard** pour un projet nommé `SyliusInn`. Le projet a été réalisé sur une VM en Debian 12.
 
 ## Prérequis
 
@@ -21,7 +21,7 @@ Assurez‑vous également que l’extension PHP **intl** est activée et que vot
 
 
 # Le flag COMPOSER_MEMORY_LIMIT=-1 lève la limite de mémoire pour éviter les erreurs pendant l'installation
-# à utiliser que ci nécessaire
+(à utiliser que ci nécessaire)
 ```bash
 COMPOSER_MEMORY_LIMIT=-1 composer create-project sylius/sylius-standard SyliusInn
 ```
@@ -54,6 +54,11 @@ GRANT ALL PRIVILEGES ON inn_sylius_dev.* TO 'inn_sylius'@'localhost' IDENTIFIED 
 ```
 
 Définissez ensuite la variable d’environnement dans **.env.local** :
+
+```bash
+# Création du fichier
+nano .env.local
+```
 
 ```dotenv
 # fichier .env.local
@@ -93,7 +98,7 @@ Cette commande :
 - ajoute un administrateur `sylius / sylius` ;
 - importe des produits exemples.
 
-> Après le chargement, connectez‑vous au back‑office (`/admin`) puis allez dans **Configuration › Canaux › FASHION\_WEB › Modifier** pour ajuster le **Hostname**. Exemple : `IP`.
+> Après le chargement, connectez‑vous au back‑office (`/admin`) puis allez dans **Configuration › Canaux › FASHION\_WEB › Modifier** pour ajuster le **Hostname** (bon URL). Exemple : `IP` ou 'localhost'.
 
 ---
 
@@ -106,53 +111,7 @@ Cette commande :
 
 ---
 
-## 8. (Optionnel) Installer le plugin CMS
-
-1. Autoriser les recettes communautaires :
-
-   ```bash
-   composer config extra.symfony.allow-contrib true
-   ```
-
-2. Ajouter le plugin :
-
-   ```bash
-   composer require sylius/cms-plugin
-   ```
-
-3. Installer les dépendances JavaScript requises :
-
-   ```bash
-   yarn add trix@^2.0.0 swiper@^11.2.6
-   ```
-
-4. Recompiler les assets :
-
-   ```bash
-   # Développement
-   ```
-
-yarn encore dev
-
-# Production
-
-yarn encore production
-
-````
-
-5. Mettre à jour le schéma de base de données :
-
-```bash
-# En environnement de développement
-bin/console doctrine:migrations:migrate
-
-# En production
-bin/console doctrine:migrations:migrate -e prod
-````
-
----
-
-## 9. Étapes suivantes
+## 8. Étapes suivantes
 
 - Configurer vos canaux (locales, devises, méthodes de paiement et de livraison).
 - Personnaliser le thème (templates Twig, fichiers SCSS, etc.).
