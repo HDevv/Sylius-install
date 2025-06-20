@@ -1,6 +1,6 @@
 # Installation de Sylius
 
-Ce guide explique pas à pas comment installer **Sylius Standard** pour un projet nommé `SyliusInnelec`.
+Ce guide explique pas à pas comment installer **Sylius Standard** pour un projet nommé `SyliusInn`.
 
 ## Prérequis
 
@@ -21,8 +21,8 @@ Assurez‑vous également que l’extension PHP **intl** est activée et que vot
 
 ```bash
 # Le flag COMPOSER_MEMORY_LIMIT=-1 lève la limite de mémoire pour éviter les erreurs pendant l'installation
-COMPOSER_MEMORY_LIMIT=-1 composer create-project sylius/sylius-standard SyliusInnelec
-cd SyliusInnelec
+COMPOSER_MEMORY_LIMIT=-1 composer create-project sylius/sylius-standard SyliusInn
+cd SyliusInn
 ```
 
 ---
@@ -43,15 +43,15 @@ yarn build          # compile et optimise les assets (utilisez `yarn dev` pour u
 Créez une base MySQL (ou MariaDB) et un utilisateur dédié :
 
 ```sql
-CREATE DATABASE innelec_sylius_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-GRANT ALL PRIVILEGES ON innelec_sylius_dev.* TO 'innelec_sylius'@'localhost' IDENTIFIED BY 'csadev';
+CREATE DATABASE inn_sylius_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON inn_sylius_dev.* TO 'inn_sylius'@'localhost' IDENTIFIED BY 'csdev';
 ```
 
 Définissez ensuite la variable d’environnement dans **.env.local** :
 
 ```dotenv
 # fichier .env.local
-DATABASE_URL="mysql://innelec_sylius:csadev@127.0.0.1:3306/innelec_sylius_dev"
+DATABASE_URL="mysql://inn_sylius:csdev@127.0.0.1:3306/inn_sylius_dev"
 ```
 
 ---
@@ -87,7 +87,7 @@ Cette commande :
 - ajoute un administrateur `sylius / sylius` ;
 - importe des produits exemples.
 
-> Après le chargement, connectez‑vous au back‑office (`/admin`) puis allez dans **Configuration › Canaux › FASHION\_WEB › Modifier** pour ajuster le **Hostname**. Exemple : `192.168.51.42`.
+> Après le chargement, connectez‑vous au back‑office (`/admin`) puis allez dans **Configuration › Canaux › FASHION\_WEB › Modifier** pour ajuster le **Hostname**. Exemple : `IP`.
 
 ---
 
@@ -95,8 +95,8 @@ Cette commande :
 
 | Espace           | URL par défaut                                                     | Identifiants      |
 | ---------------- | ------------------------------------------------------------------ | ----------------- |
-| **Front‑office** | [http://192.168.51.42:8001](http://192.168.51.42:8001)             | —                 |
-| **Back‑office**  | [http://192.168.51.42:8001/admin](http://192.168.51.42:8001/admin) | `sylius / sylius` |
+| **Front‑office** | [http://IP:8001](http://IP:8001)             | —                 |
+| **Back‑office**  | [http://IP:8001/admin](http://IP:8001/admin) | `sylius / sylius` |
 
 ---
 
