@@ -19,12 +19,18 @@ Assurez‑vous également que l’extension PHP **intl** est activée et que vot
 
 ## 1. Création du projet
 
-```bash
+
 # Le flag COMPOSER_MEMORY_LIMIT=-1 lève la limite de mémoire pour éviter les erreurs pendant l'installation
+# à utiliser que ci nécessaire
 COMPOSER_MEMORY_LIMIT=-1 composer create-project sylius/sylius-standard SyliusInn
-cd SyliusInn
+
 ```
 
+Se placer ensuite dans le dossier du projet : 
+
+```bash
+cd SyliusInn
+```
 ---
 
 ## 2. Installation des dépendances front‑end
